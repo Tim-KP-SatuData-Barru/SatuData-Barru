@@ -1,17 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import Image from "next/image";
-import Link from "next/link";
 
 function Footer() {
-
-  const [active, setActive] = useState<number | null>(null);
-  
-  const mediaLinks = [
-    { id: 1, title: "Instagram", href: "https://www.instagram.com/" },
-    { id: 2, title: "Twitter", href: "https://twitter.com/" },
-    { id: 3, title: "Facebook", href: "https://facebook.com/" },
-  ];
 
   return (
     <div className='bottom-0'>
@@ -28,9 +18,9 @@ function Footer() {
       <div className='flex flex-col gap-3'>
         <h1 className='font-bold text-2xl'>Sosial Media</h1>
         <ul className='flex flex-row gap-5'>
-          <li><a href=""><img className='w-12 min-w-10' src="/images/instagram_logo.png" alt="instagram-logo" /></a></li>
-          <li><a href=""><img className='w-12 min-w-10' src="/images/facebook_logo.png" alt="facebook-logo"/></a></li>
-          <li><a href=""><img className='w-12 min-w-10' src="/images/twitter-logo.png" alt="twitter-logo"/></a></li>
+          <li><a href="https://www.instagram.com"><img className='w-12 min-w-10' src="/images/instagram_logo.png" alt="instagram-logo" /></a></li>
+          <li><a href="https://www.facebook.com"><img className='w-12 min-w-10' src="/images/facebook_logo.png" alt="facebook-logo"/></a></li>
+          <li><a href="https://www.twitter.com"><img className='w-12 min-w-10' src="/images/twitter-logo.png" alt="twitter-logo"/></a></li>
         </ul>
       </div>
       <div className='flex flex-col gap-3'>
