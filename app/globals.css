@@ -11,3 +11,9 @@
 body {
   width: 100vw;
 }
+
+.footer-padding {
+  padding-left: 7vw;
+  padding-right: 7vw;
+}
+

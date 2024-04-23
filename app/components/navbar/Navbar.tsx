@@ -11,7 +11,7 @@ function Navbar() {
       { id: 1, title: "Organisasi", href: "/organisasi" },
       { id: 2, title: "Infografis", href: "/" },
       { id: 3, title: "Data", href: "/" },
-      { id: 4, title: "Informasi Aktual", href: "/" },
+      { id: 4, title: "Informasi Aktual", href: "/informasi-aktual" },
       { id: 5, title: "Publikasi", href: "/" },
     ];
 
@@ -19,7 +19,7 @@ function Navbar() {
     <nav className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between border-b bg-blue-dark px-14 py-4">
         <div>
         <Image
-            src="/images/bolata_icon.webp"
+            src="/images/bolata_logo.png"
             width={105}
             height={50}
             alt="Bolata's icon"
