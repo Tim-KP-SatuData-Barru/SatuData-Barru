@@ -2,39 +2,39 @@
 import React from 'react'
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 function Navbar() {
-    const [active, setActive] = useState<number | null>(null);
+    const pathname = usePathname()
 
     const navItems = [
       { id: 1, title: "Organisasi", href: "/organisasi" },
-      { id: 2, title: "Infografis", href: "/" },
-      { id: 3, title: "Data", href: "/" },
+      { id: 2, title: "Infografis", href: "/infografis" },
+      { id: 3, title: "Data", href: "/data" },
       { id: 4, title: "Informasi Aktual", href: "/informasi-aktual" },
-      { id: 5, title: "Publikasi", href: "/" },
+      { id: 5, title: "Publikasi", href: "/publikasi" },
     ];
 
   return (
     <nav className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between border-b bg-blue-dark px-14 py-4">
-        <div>
+        <Link
+          href="/">
         <Image
             src="/images/bolata_logo.png"
             width={105}
             height={50}
             alt="Bolata's icon"
         />
-        </div>
+        </Link>
         <section className="flex items-center gap-8 text-white text-sm">
         {navItems.map((link) => (
           <Link key={link.id} href={link.href}>
             <span
               className={`${
-                active === link.id
-                  ? "font-semibold hover:text-white-hover"
+                pathname.startsWith(link.href)
+                  ? "hover:text-white-hover text-blue-light"
                   : "hover:text-white-hover"
               } `}
-              onClick={() => setActive(link.id)}
             >
               {link.title}
             </span>
