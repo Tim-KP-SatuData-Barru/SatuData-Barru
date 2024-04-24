@@ -12,8 +12,17 @@ body {
   width: 100vw;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .footer-padding {
   padding-left: 7vw;
   padding-right: 7vw;
 }
+
+.hide-scroll::-webkit-scrollbar {
+  display: none; 
+}
+
 
