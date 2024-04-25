@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from 'react';
+import React from 'react';
 import InfoAktualMini from '../infoAktualMini';
 import mockData from '../../../public/mockData';
 import Link from 'next/link';
@@ -9,7 +8,7 @@ function InfoAktualDashboard() {
     const infoLink = '/informasi-aktual';
 
   return (
-    <div className='flex flex-col gap-10 px-10 py-14'>
+    <div className='flex flex-col gap-8 px-14 py-14'>
     <div className='flex flex-row gap-3'>
         <div className='bg-orange w-1'>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import Image from "next/image";
 import Footer from "../components/footer";
+import OrganisasiCard from "../components/card";
 
 const skpdItems = [
   {
@@ -106,24 +106,15 @@ function Organisasi() {
         </section>
 
         <section className="flex flex-wrap gap-6">
-          {skpdItems.map((skpd) => (
-            <div
-              key={skpd.id}
-              className="flex flex-col text-center items-center w-[274px] h-[300px] p-5 rounded-3xl shadow-lg shadow-white-hover bg-white"
-            >
-              <h2 className="flex items-center font-bold text-blue-dark text-md h-16">
-                {skpd.title}
-              </h2>
-              <Image
-                className="w-24 h-24 my-4 rounded-full"
-                src={skpd.image}
-                width={80}
-                height={80}
-                alt="Tidak ada Gambar"
-              />
-              <h3 className="text-orange font-bold text-md">{skpd.position}</h3>
-              <h3 className="text-md">{skpd.name}</h3>
-            </div>
+          {skpdItems.map((item, index) => (
+            <OrganisasiCard 
+              key={index}
+              id={item.id}
+              title={item.title}
+              image={item.image}
+              position={item.position}
+              name={item.name}
+            />
           ))}
         </section>
 
@@ -138,24 +129,15 @@ function Organisasi() {
         </section>
 
         <section className="flex flex-wrap gap-6 mb-16">
-          {sekretariatItems.map((skpd) => (
-            <div
-              key={skpd.id}
-              className="flex flex-col text-center items-center w-[274px] h-[300px] p-5 rounded-3xl shadow-lg shadow-white-hover bg-white"
-            >
-              <h2 className="flex items-center font-bold text-blue-dark text-md h-16">
-                {skpd.title}
-              </h2>
-              <Image
-                className="w-24 h-24 my-4 rounded-full "
-                src={skpd.image != "" ? skpd.image : '/icons/profile.svg'}
-                width={80}
-                height={80}
-                alt="Tidak ada Gambar"
-              />
-              <h3 className="text-orange font-bold text-md">{skpd.position}</h3>
-              <h3 className="text-md">{skpd.name}</h3>
-            </div>
+          {sekretariatItems.map((item, index) => (
+            <OrganisasiCard 
+              key={index}
+              id={item.id}
+              title={item.title}
+              image={item.image}
+              position={item.position}
+              name={item.name}
+            />
           ))}
         </section>
       </section>
