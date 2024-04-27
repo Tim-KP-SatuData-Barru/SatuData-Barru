@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-function InfoAktualMini({
+function InfoAktualMiniPreview({
   data,
 }: {
   data: {
@@ -77,4 +77,4 @@ function InfoAktualMini({
   );
 }
 
-export default InfoAktualMini;
+export default InfoAktualMiniPreview;
