@@ -1,9 +1,9 @@
 import React from "react";
 import InfoAktualMini from "../infoAktualMini";
-import mockData from "../../../public/mockData";
+import mockDataInfoAktual from "../../../public/mockData/mockDataInfoAktual";
 import Link from "next/link";
 function InfoAktualDashboard() {
-  const data = mockData.slice(0, 5);
+  const data = mockDataInfoAktual.slice(0, 5);
   const infoLink = "/informasi-aktual-list/1";
 
   return (

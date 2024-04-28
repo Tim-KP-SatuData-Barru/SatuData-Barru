@@ -1,32 +1,31 @@
 "use client";
-import React from 'react'
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 function Navbar() {
-    const pathname = usePathname()
+  const pathname = usePathname();
 
-    const navItems = [
-      { id: 1, title: "Organisasi", href: "/organisasi" },
-      { id: 2, title: "Infografis", href: "/infografis" },
-      { id: 3, title: "Data", href: "/data" },
-      { id: 4, title: "Informasi Aktual", href: "/informasi-aktual" },
-      { id: 5, title: "Publikasi", href: "/publikasi" },
-    ];
+  const navItems = [
+    { id: 1, title: "Organisasi", href: "/organisasi" },
+    { id: 2, title: "Infografis", href: "/infografis" },
+    { id: 3, title: "Data", href: "/data" },
+    { id: 4, title: "Informasi Aktual", href: "/informasi-aktual-list/1" },
+    { id: 5, title: "Publikasi", href: "/publikasi" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between border-b bg-blue-dark px-14 py-4">
-        <Link
-          href="/">
+      <Link href="/">
         <Image
-            src="/images/bolata_logo.png"
-            width={105}
-            height={50}
-            alt="Bolata's icon"
+          src="/images/bolata_logo.png"
+          width={105}
+          height={50}
+          alt="Bolata's icon"
         />
-        </Link>
-        <section className="flex items-center gap-8 text-white text-sm">
+      </Link>
+      <section className="flex items-center gap-8 text-white text-sm">
         {navItems.map((link) => (
           <Link key={link.id} href={link.href}>
             <span
@@ -42,7 +41,7 @@ function Navbar() {
         ))}
       </section>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

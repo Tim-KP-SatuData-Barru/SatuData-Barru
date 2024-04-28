@@ -3,15 +3,15 @@ import Footer from "@/app/components/footer";
 import InfoAktualDetailCom from "@/app/components/infoAktualDetailCom";
 import InfoAktualMini from "@/app/components/infoAktualMini";
 import Navbar from "@/app/components/navbar";
-import mockData from "@/public/mockData";
+import mockDataInfoAktual from "@/public/mockData/mockDataInfoAktual";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import React from "react";
 
 function InformasiAktual() {
   const { id } = useParams<{ id: string }>();
-  const data = mockData.find((item) => item.id === id);
-  const dataSlice = mockData.slice(0, 5);
+  const data = mockDataInfoAktual.find((item) => item.id === id);
+  const dataSlice = mockDataInfoAktual.slice(0, 5);
 
   const infoLink = "/informasi-aktual-list/1";
 

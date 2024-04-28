@@ -1,4 +1,4 @@
-const mockData = [
+const mockDataInfoAktual = [
   {
     id: "a1",
     image: "/images/jurusan-statistika.jpg",
@@ -65,4 +65,4 @@ const mockData = [
   },
 ];
 
-export default mockData;
+export default mockDataInfoAktual;

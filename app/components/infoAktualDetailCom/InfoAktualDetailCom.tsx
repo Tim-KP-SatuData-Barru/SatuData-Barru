@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "next/navigation";
-import mockData from "../../../public/mockData";
+import mockDataInfoAktual from "../../../public/mockData/mockDataInfoAktual";
 import Navbar from "../navbar";
 import Footer from "../footer";
 import InfoAktualMini from "../infoAktualMini";
 
 const InfoAktualDetailCom: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const data = mockData.find((item) => item.id === id);
+  const data = mockDataInfoAktual.find((item) => item.id === id);
 
   return (
     <div>
