@@ -8,21 +8,24 @@ import InfoAktualMini from "../infoAktualMini";
 const InfoAktualDetailCom: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const data = mockData.find((item) => item.id === id);
-  const dataSlice = mockData.slice(0, 5);
 
   return (
     <div>
       {data ? (
         <div>
-          <div>
-            <h1 className="text-blue-dark font-bold text-2xl">{data.title}</h1>
-            <p className="text-blue-dark text-sm">
-              Home &gt; Informasi Aktual &gt; {data.title}
-            </p>
-            <div className="flex flex-row gap-2">
-              <div className="px-2 py-1 text-xs rounded-xl text-center flex flex-row gap-1 items-center text-blue-dark">
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-2">
+              <h1 className="text-blue-dark font-bold text-3xl">
+                {data.title}
+              </h1>
+              <p className="text-blue-dark text-base">
+                Home &gt; Informasi Aktual &gt; {data.title}
+              </p>
+            </div>
+            <div className="flex flex-row gap-4">
+              <div className="py-1 text-base text-center flex flex-row gap-1 items-center text-blue-dark">
                 <svg
-                  className="w-4"
+                  className="w-5"
                   fill="#FB7436"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +42,7 @@ const InfoAktualDetailCom: React.FC = () => {
                 </svg>
                 <p>{data.date}</p>
               </div>
-              <div className="px-2 py-1 text-xs rounded-xl text-center text-blue-dark flex flex-row gap-1 items-center">
+              <div className="py-1 text-base text-center text-blue-dark flex flex-row gap-1 items-center">
                 <svg
                   className="w-5"
                   viewBox="0 0 24 24"
@@ -54,11 +57,15 @@ const InfoAktualDetailCom: React.FC = () => {
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}
-                    <circle cx="12" cy="12" r="4" fill="#FB7436"></circle>{" "}
                     <path
-                      d="M21 12C21 12 20 4 12 4C4 4 3 12 3 12"
-                      stroke="#FB7436"
-                      stroke-width="2"
+                      d="M9.75 12C9.75 10.7574 10.7574 9.75 12 9.75C13.2426 9.75 14.25 10.7574 14.25 12C14.25 13.2426 13.2426 14.25 12 14.25C10.7574 14.25 9.75 13.2426 9.75 12Z"
+                      fill="#FB7436"
+                    ></path>{" "}
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M2 12C2 13.6394 2.42496 14.1915 3.27489 15.2957C4.97196 17.5004 7.81811 20 12 20C16.1819 20 19.028 17.5004 20.7251 15.2957C21.575 14.1915 22 13.6394 22 12C22 10.3606 21.575 9.80853 20.7251 8.70433C19.028 6.49956 16.1819 4 12 4C7.81811 4 4.97196 6.49956 3.27489 8.70433C2.42496 9.80853 2 10.3606 2 12ZM12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25Z"
+                      fill="#FB7436"
                     ></path>{" "}
                   </g>
                 </svg>
@@ -66,6 +73,7 @@ const InfoAktualDetailCom: React.FC = () => {
               </div>
             </div>
           </div>
+          <img src={data.image} alt={data.title} className="py-5" />
           <p>{data.content}</p>
         </div>
       ) : (
