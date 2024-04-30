@@ -10,9 +10,10 @@ function Navbar() {
   const navItems = [
     { id: 1, title: "Organisasi", href: "/organisasi" },
     { id: 2, title: "Infografis", href: "/infografis" },
-    { id: 3, title: "Data", href: "/data" },
-    { id: 4, title: "Informasi Aktual", href: "/informasi-aktual-list/1" },
-    { id: 5, title: "Publikasi", href: "/publikasi" },
+    { id: 3, title: "Data Umum", href: "/data-umum" },
+    { id: 4, title: "Data Sektoral", href: "/data-sektoral" },
+    { id: 5, title: "Informasi Aktual", href: "/informasi-aktual-list/1" },
+    { id: 6, title: "Publikasi", href: "/publikasi" },
   ];
 
   return (
