@@ -9,15 +9,19 @@ interface PageButtonProps {
   
 
 function PageButton({ currentPage, totalPages, onPageChange }: PageButtonProps) {
-  
+
+
+  //Function to handle decrease button
   const handleDecrease = () => {
     onPageChange(Math.max(currentPage - 1, 1));
   };
 
+  //Function to handle increase button
   const handleIncrease = () => {
     onPageChange(Math.min(currentPage + 1, totalPages));
   };
 
+  //Function to handle page change (when clicking the page number button)
   const handlePageChange = (number: number) => {
     onPageChange(number);
   };
