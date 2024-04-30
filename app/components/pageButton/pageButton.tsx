@@ -29,7 +29,7 @@ function PageButton() {
   };
 
   return (
-    <div className="flex flex-row gap-[20px] justify-center my-2">
+    <div className="flex flex-row gap-[20px] justify-center my-[2vh]">
       <button onClick={handleDecrease} className="flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark bg-white text-blue-dark px-4 py-2 rounded-full">{"<"}</button>
       {Array.from({ length: 3 }, arrInit).map((number) => number > 0 && number <= maxNum ?  (
         <button onClick={() => handlePageChange(number)} key={number} className={`flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark px-4 py-2 rounded-full ${number === pageNum ? 'bg-blue-dark text-white' : 'bg-white text-blue-dark'}`}>
