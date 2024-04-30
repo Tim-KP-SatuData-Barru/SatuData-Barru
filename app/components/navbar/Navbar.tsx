@@ -17,7 +17,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between border-b bg-blue-dark px-14 py-4">
+    <nav className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between  bg-blue-dark px-14 py-4">
       <Link href="/">
         <Image
           src="/images/bolata_logo.png"
