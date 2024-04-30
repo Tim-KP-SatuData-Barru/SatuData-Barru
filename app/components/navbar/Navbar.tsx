@@ -12,7 +12,7 @@ function Navbar() {
     { id: 2, title: "Infografis", href: "/infografis" },
     { id: 3, title: "Data Umum", href: "/data-umum" },
     { id: 4, title: "Data Sektoral", href: "/data-sektoral" },
-    { id: 5, title: "Informasi Aktual", href: "/informasi-aktual-list/1" },
+    { id: 5, title: "Informasi Aktual", href: "/informasi-aktual" },
     { id: 6, title: "Publikasi", href: "/publikasi" },
   ];
 
