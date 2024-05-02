@@ -38,14 +38,14 @@ function PageButton({ currentPage, totalPages, onPageChange }: PageButtonProps) 
 
   return (
     <div className="flex flex-row gap-[20px] justify-center mb-8">
-      <button onClick={handleDecrease} className="flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark bg-white text-blue-dark px-4 py-2 rounded-full">{"<"}</button>
+      <button onClick={handleDecrease} className="flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark bg-white text-blue-dark px-4 py-2 rounded-full hover:bg-[#e0eaf1]">{"<"}</button>
       {Array.from({ length: 3 }, arrInit).map((number) => number > 0 && number <= totalPages ?  (
-        <button onClick={() => handlePageChange(number)} key={number} className={`flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark px-4 py-2 rounded-full ${number === currentPage ? 'bg-blue-dark text-white' : 'bg-white text-blue-dark'}`}>
+        <button onClick={() => handlePageChange(number)} key={number} className={`flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark px-4 py-2 rounded-full  ${number === currentPage ? 'bg-blue-dark text-white' : 'bg-white text-blue-dark hover:bg-[#e0eaf1]'}`}>
           {number}
         </button>
         ) : null
       )} 
-      <button onClick={handleIncrease} className="flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark bg-white text-blue-dark px-4 py-2 rounded-full">{">"}</button>
+      <button onClick={handleIncrease} className="flex justify-center items-center w-[3vw] h-[3vw] border-2 border-blue-dark bg-white text-blue-dark px-4 py-2 rounded-full hover:bg-[#e0eaf1]">{">"}</button>
     </div>
   );
 }
