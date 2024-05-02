@@ -74,7 +74,7 @@ function InfoAktualMini({
               <p>{data.views} Views</p>
             </div>
           </div>
-          <h1 className="text-md font-bold text-blue-dark">{data.title}</h1>
+          <h1 className="text-md font-bold text-blue-dark line-clamp-2">{data.title}</h1>
         </div>
       </div>
     </Link>
