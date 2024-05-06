@@ -34,8 +34,9 @@ import Footer from "@/app/components/footer";
 import ReactToPrint from "react-to-print";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { useParams } from "next/navigation";
 
-const citiesList: any = ["D11111118", "D11111119", "D11111117"];
+const citiesList: any = ["Indeks Reformasi Birokrasi 2019 - 2024", "Indeks Reformasi Birokrasi 2014 - 2019", "Indeks Reformasi Birokrasi 2009 - 2014"];
 
 const columns: MRT_ColumnDef<CollegeStudent>[] = [
   {
@@ -46,16 +47,28 @@ const columns: MRT_ColumnDef<CollegeStudent>[] = [
     },
   },
   {
-    accessorKey: "namemahasiswa",
-    header: "Nama mahasiswa",
+    accessorKey: "element",
+    header: "Element",
   },
   {
-    accessorKey: "nim",
-    header: "Nim",
+    accessorKey: "2021",
+    header: "2021",
   },
   {
-    accessorKey: "nilai",
-    header: "Nilai",
+    accessorKey: "2022",
+    header: "2022",
+  },
+  {
+    accessorKey: "2023",
+    header: "2023",
+  },
+  {
+    accessorKey: "2024",
+    header: "2024",
+  },
+  {
+    accessorKey: "satuan",
+    header: "Satuan",
   },
 ];
 
@@ -66,17 +79,22 @@ const csvConfig = mkConfig({
   useKeysAsHeaders: true,
 });
 
-const DinasData = () => {
-  const [selectedNIM, setSelectedNIM] = useState("");
+const DataDasarDetail = () => {
+  const [selectedData, setSelectedData] = useState("Indeks Reformasi Birokrasi 2019 - 2024");
   const componentRef = useRef(null);
-
-  const filteredData = selectedNIM
-    ? dataCollege.filter((item) => item.nim === selectedNIM)
-    : dataCollege;
+  const { id } = useParams<{ id: string }>();
 
   const handleSelectChange = (event: any) => {
-    const nim = event.target.value;
-    setSelectedNIM(nim);
+    const data = event.target.value;
+    setSelectedData(data);
+  };
+
+
+  const formatTitle = (title: string) => {
+    return title
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   const handleExportData = () => {
@@ -101,7 +119,7 @@ const DinasData = () => {
 
   const table = useMaterialReactTable({
     columns,
-    data: filteredData,
+    data: dataCollege,
     initialState: {
       pagination: { pageSize: 15, pageIndex: 0 },
       showGlobalFilter: true,
@@ -114,7 +132,7 @@ const DinasData = () => {
     <main>
       <Navbar />
       <h1 className="py-8 w-full text-center text-orange text-heading-m font-bold">
-        Bagian Organisasi
+        {formatTitle(id)}
       </h1>
       <Stack className="flex flex-col gap-8 px-14">
         <Box
@@ -126,29 +144,17 @@ const DinasData = () => {
         >
           <section className="flex flex-col gap-8">
             <select
-              value={selectedNIM}
+              value={selectedData}
               onChange={handleSelectChange}
-              className="w-60 p-4 rounded-lg bg-white border-2 border-black"
+              className="w-fit p-4 rounded-lg bg-white border-2 border-black"
             >
-              <option value="" className="cursor-pointer">Pilih Kategori</option>
               {citiesList.map((nim: any) => (
                 <option key={nim} value={nim}>
                   {nim}
                 </option>
               ))}
             </select>
-            <select
-              value={selectedNIM}
-              onChange={handleSelectChange}
-              className="w-60 p-4 rounded-lg bg-white border-2 border-black"
-            >
-              <option value="">Pilih Tahun</option>
-              {citiesList.map((nim: any) => (
-                <option key={nim} value={nim}>
-                  {nim}
-                </option>
-              ))}
-            </select>
+            <h1 className="text-heading-s font-bold">{selectedData}</h1>
           </section>
 
           <section className="flex flex-col gap-8">
@@ -253,4 +259,4 @@ const DinasData = () => {
   );
 };
 
-export default DinasData;
+export default DataDasarDetail;

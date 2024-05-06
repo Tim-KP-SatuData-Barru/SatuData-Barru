@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import OrganisasiCard from "../components/card";
+import OrganisasiCard from "../components/OrganisasiCard";
 
 const skpdItems = [
   {
@@ -115,6 +115,7 @@ function Organisasi() {
               position={item.position}
               name={item.name}
             />
+
           ))}
         </section>
 
@@ -127,6 +128,7 @@ function Organisasi() {
             Sekretariat Daerah pada Bolata Yassiberrui merupakan Satuan Kerja Perangkat Daerah Kabupaten Barru.
           </p>
         </section>
+
 
         <section className="flex flex-wrap gap-6 mb-16">
           {sekretariatItems.map((item, index) => (
@@ -142,6 +144,7 @@ function Organisasi() {
         </section>
       </section>
       <Footer />
+
     </main>
   );
 }
