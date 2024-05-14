@@ -10,9 +10,9 @@ function Navbar() {
   const navItems = [
     { id: 1, title: "Organisasi", href: "/organisasi" },
     { id: 2, title: "Infografis", href: "/infografis" },
-    { id: 3, title: "Data Umum", href: "/data-umum" },
-    { id: 4, title: "Data Dasar", href: "/data-dasar" },
-    { id: 5, title: "Dataset", href: "/dataset" },
+    { id: 3, title: "Dataset", href: "/dataset" },
+    { id: 4, title: "Data Umum", href: "/data-umum" },
+    { id: 5, title: "Data Dasar", href: "/data-dasar" },
     { id: 6, title: "Data Sektoral", href: "/data-sektoral" },
     { id: 7, title: "Informasi Aktual", href: "/informasi-aktual" },
     { id: 8, title: "Publikasi", href: "/publikasi" },
