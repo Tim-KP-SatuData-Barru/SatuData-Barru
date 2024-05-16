@@ -4,7 +4,7 @@ import mockDataInfoAktual from "../../../public/mockData/mockDataInfoAktual";
 import Link from "next/link";
 function InfoAktualDashboard() {
   const data = mockDataInfoAktual.slice(0, 5);
-  const infoLink = "/informasi-aktual-list/1";
+  const infoLink = "/informasi-aktual";
 
   return (
     <div className="flex flex-col gap-8 px-14 py-14">
