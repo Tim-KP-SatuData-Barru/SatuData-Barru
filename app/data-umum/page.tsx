@@ -74,7 +74,7 @@ const dataUmumItems = [
 
 function DataUmum() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 6;
   const totalPages = Math.ceil(dataUmumItems.length / itemsPerPage);
 
   // Calculate the start and end indices for the current page
