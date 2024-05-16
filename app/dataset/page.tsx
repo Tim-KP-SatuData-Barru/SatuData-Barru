@@ -7,11 +7,13 @@ import PageButton from "../components/pageButton";
 import { useState } from "react";
 import mockDataset from "@/public/mockData/mockDataset";
 import DatasetCard from "../components/DatasetCard";
+import DatasetModal from "../components/DatasetModal";
+import { DatasetProps } from "@/public/types/DatasetTypes";
 
 function Dataset() {
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6; // Number of items to display per page
+  const itemsPerPage = 3; // Number of items to display per page
   const totalPages = Math.ceil(mockDataset.length / itemsPerPage);
 
   // Calculate the start and end indices for the current page
@@ -23,6 +25,16 @@ function Dataset() {
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
+  }
+
+  const [selectedCard, setSelectedCard] = useState<DatasetProps | null> (null);
+
+  const handleCardClick = (card: DatasetProps) => {
+    setSelectedCard(card);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedCard(null);
   }
 
   return (
@@ -40,18 +52,13 @@ function Dataset() {
 
       <SearchBar />
 
-      {/* 
-      judul: string,
-  tanggal: string,
-  dinas: string,
-  jenis: string,
-      */}
-
       <section className="flex flex-col gap-6 mb-5 p-[5vh] justify-center">
         {itemsForPage.map((data) => (
-          <DatasetCard key={data.id} id={data.id} judul={data.judul} tanggal={data.tanggal} dinas={data.dinas} jenis={data.jenis} />
+          <DatasetCard key={data.id} card={data} onClick={handleCardClick}/>
         ))}
       </section>
+
+      <DatasetModal card={selectedCard} onClose={handleCloseModal}/>
 
       <PageButton currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
         
