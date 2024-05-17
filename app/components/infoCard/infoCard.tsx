@@ -1,41 +1,40 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import textOverflow from "@/lib/textOverflow";
 
 interface infoCardProps {
-  key: number;
-  imgsrc: string;
-  tags: string[];
-  content: string;
+  id: string;
+  image: string;
+  title: string;
+  date: string;
+  views: number;
 }
-
-const colorDict: { [key: string]: string } = {
-  "tag1": "bg-blue-light",
-  "tag2": "bg-amber-400",
-  "tag3": "bg-indigo-400",
-};
 
 function InfoCard(data: infoCardProps) {
   return (
-    <div className="flex flex-col border w-[30%] h-[40vh] rounded-3xl shadow-lg shadow-white-hover bg-white">
+    <Link 
+      href={"/informasi-aktual/" + data.id}
+      className="flex flex-col border w-[30%] h-[40vh] rounded-3xl shadow-lg shadow-white-hover bg-white">
       <Image
         className="w-[100%] h-[60%] rounded-t-3xl"
-        src={data.imgsrc != "" ? data.imgsrc : ""}
+        src={data.image != "" ? data.image : ""}
         width={80}
         height={80}
         alt="Tidak ada Gambar"
       />
       <div className="flex gap-2 mt-[2vh] pl-[5%]">
-        {data.tags.map((tag: string) => (
-          <div key={tag} className={`flex justify-center items-center w-[20%] text-xs text-white px-2 py-1 rounded-full ${colorDict[tag]}`}>
-            {tag}
-          </div>
-        ))}
+        <div className={`flex justify-center items-center w-[40%] text-xs text-white px-2 py-1 rounded-full bg-blue-light`}>
+          {data.date}
+        </div>
+        <div className={`flex justify-center items-center w-[40%] text-xs text-white px-2 py-1 rounded-full bg-amber-400`}>
+          {"Views: " + data.views}
+        </div>
       </div>
       <h2 className="flex items-center font-bold text-blue-dark text-sm h-16 text-left pl-[5%]">
-        {textOverflow(data.content, 80)}
+        {textOverflow(data.title, 80)}
       </h2>
-    </div>
+    </Link>
   );
 }
 

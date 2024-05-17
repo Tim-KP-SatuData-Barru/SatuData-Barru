@@ -46,7 +46,7 @@ function DataSektoral(){
           </p>
         </section>
 
-        <section className="flex flex-wrap gap-6 mb-16">
+        <section className="flex flex-wrap gap-6 mb-16 mx-[2vw]">
           {dataSektoralItems.map((data) => (
             <DataCard key={data.id} title={data.title} imgsrc={data.imgsrc} />
           ))}

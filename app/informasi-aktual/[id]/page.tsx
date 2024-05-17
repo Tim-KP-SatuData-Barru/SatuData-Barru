@@ -12,8 +12,7 @@ function InformasiAktual() {
   const { id } = useParams<{ id: string }>();
   const data = mockDataInfoAktual.find((item) => item.id === id);
   const dataSlice = mockDataInfoAktual.slice(0, 5);
-
-  const infoLink = "/informasi-aktual-list/1";
+  const infoLink = "/informasi-aktual";
 
   return (
     <div>

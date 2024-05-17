@@ -11,7 +11,7 @@ function DataCard(data : DataCardProps) {
     return (
         <div
             key={data.key}
-            className="flex flex-col border text-center items-center justify-center w-[274px] h-[300px] p-5 rounded-3xl shadow-lg shadow-white-hover bg-white"
+            className="flex flex-col border text-center items-center justify-center w-[30%] h-[300px] p-5 rounded-3xl shadow-lg shadow-white-hover bg-white hover:bg-neutral-300"
           >
             <Image
               className="w-24 h-24 my-4 rounded-full"
