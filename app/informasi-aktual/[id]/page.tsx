@@ -14,6 +14,7 @@ function InformasiAktual() {
   const dataSlice = mockDataInfoAktual.slice(0, 5);
   const infoLink = "/informasi-aktual";
 
+  if (data)
   return (
     <div>
       <Navbar />
@@ -25,7 +26,7 @@ function InformasiAktual() {
           <h1 className="text-2xl font-bold">Informasi Aktual Lainnya</h1>
           <div className="flex flex-col gap-7">
             {dataSlice.map((item) => (
-              <InfoAktualMini key={item.id} data={item} />
+              <InfoAktualMini key={item.id} id={data.id} image={data.image} title={data.title} views={data.views} date={data.date} />
             ))}
           </div>
           <Link href={infoLink}>
