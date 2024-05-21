@@ -8,7 +8,6 @@ import Image from "next/image";
 import PublicationCard from "@/app/components/PublicationCard";
 import Link from "next/link";
 
-
 function Publikasi() {
 
   const { id } = useParams<{ id: string }>();

@@ -8,18 +8,14 @@ import SearchBar from "../components/searchBar";
 import { useState } from "react";
 import mockDataPublikasi from "@/public/mockData/mockDataPublikasi";
 
-
-
 function PublikasiList() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8; // Number of items to display per page
+  const itemsPerPage = 8;
   const totalPages = Math.ceil(mockDataPublikasi.length / itemsPerPage);
 
-  // Calculate the start and end indices for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, mockDataPublikasi.length);
 
-  // Slice the infoAktualItems array to get the items for the current page
   const itemsForPage = mockDataPublikasi.slice(startIndex, endIndex);
 
   const handlePageChange = (pageNumber: number) => {
