@@ -48,7 +48,7 @@ const columns: MRT_ColumnDef<CollegeStudent>[] = [
   },
   {
     accessorKey: "element",
-    header: "Element",
+    header: "Elemen",
   },
   {
     accessorKey: "2021",
