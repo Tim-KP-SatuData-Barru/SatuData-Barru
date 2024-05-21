@@ -1,16 +1,15 @@
 import React from "react";
 import Link from "next/link";
-function InfoAktualMini({
-  data,
-}: {
-  data: {
-    id: string;
-    image: string;
-    title: string;
-    date: string;
-    views: number;
-  };
-}) {
+
+interface infoCardProps {
+  id: string;
+  image: string;
+  title: string;
+  date: string;
+  views: number;
+}
+
+function InfoAktualMini(data: infoCardProps) {
   return (
     <Link href={`/informasi-aktual/${data.id}`}>
       <div
