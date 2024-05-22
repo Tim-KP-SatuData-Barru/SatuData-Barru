@@ -1,3 +1,12 @@
+export type DataDasarType = {
+  element: string;
+  2021: string;
+  2022: string;
+  2023: string;
+  2024: string;
+  satuan: string;
+};
+
 export const dataUmumItems = [
     {
       id: 1,
