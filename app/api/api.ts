@@ -5,3 +5,15 @@ export const getListDatasets = async () => {
 
     return response.data.data;
 };
+
+export const getListBidangs = async (dinas: string) => {
+    const response = await axios.get(`http://localhost:3001/api/daftar-dinas?filters[nama][$eq]=${dinas}&populate[bidangs][populate]=data_bidangs`);
+
+    return response.data.data;
+};
+
+export const getDetailBidang = async (bidang: string) => {
+    const response = await axios.get(`http://localhost:3001/api/daftar-bidang?filters[nama_bidang][$eq]=${bidang}&populate=data_bidangs`);
+
+    return response.data.data;
+};
