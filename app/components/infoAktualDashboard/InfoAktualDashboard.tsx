@@ -6,6 +6,7 @@ function InfoAktualDashboard() {
   const data = mockDataInfoAktual.slice(0, 5);
   const infoLink = "/informasi-aktual";
 
+  if (data)
   return (
     <div className="flex flex-col gap-8 px-14 py-14">
       <div className="flex flex-row gap-3">
@@ -17,7 +18,7 @@ function InfoAktualDashboard() {
       </div>
       <div className="flex flex-row gap-7 overflow-x-scroll hide-scroll scroll-smooth py-3">
         {data.map((item) => (
-          <InfoAktualMini key={item.id} data={item} />
+          <InfoAktualMini key={item.id} id={item.id} image={item.image} title={item.title} views={item.views} date={item.date} />
         ))}
       </div>
       <Link href={infoLink}>

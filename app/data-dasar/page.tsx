@@ -7,80 +7,16 @@ import Link from "next/link";
 import { useState } from "react";
 import PageButton from "../components/pageButton";
 import SkpdCard from "../components/skpdCard";
-
-const dataUmumItems = [
-  {
-    id: 1,
-    title: "Bagian Organisasi",
-    image: "/images/data-umum/bagian-organisasi.svg",
-  },
-  {
-    id: 2,
-    title: "Bapenda",
-    image: "/images/data-umum/bapenda.svg",
-  },
-  {
-    id: 3,
-    title: "Beppelitbangda",
-    image: "/images/data-umum/beppelitbangda.svg",
-  },
-  {
-    id: 4,
-    title: "Bencana",
-    image: "/images/data-umum/bencana.svg",
-  },
-  {
-    id: 5,
-    title: "Kominfo-SP",
-    image: "/images/data-umum/kominfo-sp.svg",
-  },
-  {
-    id: 6,
-    title: "Capil",
-    image: "/images/data-umum/capil.svg",
-  },
-  {
-    id: 7,
-    title: "Pendidikan",
-    image: "/images/data-umum/pendidikan.svg",
-  },
-  {
-    id: 8,
-    title: "BPMD",
-    image: "/images/data-umum/bpmd.svg",
-  },
-  {
-    id: 9,
-    title: "Kesehatan",
-    image: "/images/data-umum/kesehatan.svg",
-  },
-  {
-    id: 10,
-    title: "LH",
-    image: "/images/data-umum/lh.svg",
-  },
-  {
-    id: 11,
-    title: "PUPTR",
-    image: "/images/data-umum/puptr.svg",
-  },
-  {
-    id: 12,
-    title: "Sosial",
-    image: "/images/data-umum/sosial.svg",
-  },
-];
+import { dataUmumItems } from "@/public/mockData/mockDataDasar";
 
 function DataDasar() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const totalPages = Math.ceil(dataUmumItems.length / itemsPerPage);
 
-  // Calculate the start and end indices for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, dataUmumItems.length);
 
-  // Slice the infoAktualItems array to get the items for the current page
   const itemsForPage = dataUmumItems.slice(startIndex, endIndex);
 
   const handlePageChange = (pageNumber: number) => {

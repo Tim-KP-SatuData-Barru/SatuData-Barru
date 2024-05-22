@@ -1,9 +1,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import mockDataInfoAktual from "../../../public/mockData/mockDataInfoAktual";
-import Navbar from "../navbar";
-import Footer from "../footer";
-import InfoAktualMini from "../infoAktualMini";
+import Image from "next/image";
 
 const InfoAktualDetailCom: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -73,8 +71,13 @@ const InfoAktualDetailCom: React.FC = () => {
               </div>
             </div>
           </div>
-          <img src={data.image} alt={data.title} className="py-5" />
-          <p>{data.content}</p>
+          <Image 
+            src={data.image} 
+            alt={data.title} 
+            width={800}
+            height={50}
+            className="py-5" />
+          <p className="text-justify">{data.content}</p>
         </div>
       ) : (
         <p>Info Aktual tidak ditemukan</p>

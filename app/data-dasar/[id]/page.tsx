@@ -8,8 +8,6 @@ import {
   type MRT_ColumnDef,
   useMaterialReactTable,
   MRT_Row,
-  MaterialReactTable,
-  MRT_Table,
 } from "material-react-table";
 import {
   Box,
@@ -20,25 +18,20 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
 } from "@mui/material";
 import { mkConfig, generateCsv, download } from "export-to-csv";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
-import {
-  type CollegeStudent,
-  dataCollege,
-} from "../../mockData/CollegeStudentData";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import ReactToPrint from "react-to-print";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import { getDetailBidang, getListBidangs } from "@/app/api/api";
+import { DataDasarType } from "@/public/mockData/mockDataDasar";
 
-const citiesList: any = ["Indeks Reformasi Birokrasi 2019 - 2024", "Indeks Reformasi Birokrasi 2014 - 2019", "Indeks Reformasi Birokrasi 2009 - 2014"];
-
-const columns: MRT_ColumnDef<CollegeStudent>[] = [
+const columns: MRT_ColumnDef<DataDasarType>[] = [
   {
     accessorKey: "no",
     header: "No",
@@ -47,23 +40,23 @@ const columns: MRT_ColumnDef<CollegeStudent>[] = [
     },
   },
   {
-    accessorKey: "element",
-    header: "Element",
+    accessorKey: "elemen",
+    header: "Elemen",
   },
   {
-    accessorKey: "2021",
+    accessorKey: "year_2021",
     header: "2021",
   },
   {
-    accessorKey: "2022",
+    accessorKey: "year_2022",
     header: "2022",
   },
   {
-    accessorKey: "2023",
+    accessorKey: "year_2023",
     header: "2023",
   },
   {
-    accessorKey: "2024",
+    accessorKey: "year_2024",
     header: "2024",
   },
   {
@@ -79,14 +72,56 @@ const csvConfig = mkConfig({
   useKeysAsHeaders: true,
 });
 
+const getAllItems = (data: any) => {
+  return data.map((item: any) => item.attributes);
+};
+
+const getAllBidangs = (data: any) => {
+  return data.map((item: any) => item.attributes.nama_bidang);
+};
+
 const DataDasarDetail = () => {
-  const [selectedData, setSelectedData] = useState("Indeks Reformasi Birokrasi 2019 - 2024");
+  const [selectedData, setSelectedData] = useState();
   const componentRef = useRef(null);
   const { id } = useParams<{ id: string }>();
+  const [data, setData] = useState<[]>([]);
+  const [bidang, setBidang] = useState<[]>([]);
 
-  const handleSelectChange = (event: any) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getListBidangs(id);
+
+        const elementsArray = getAllItems(response[0].attributes.bidangs.data[0].attributes.data_bidangs.data);
+        setData(elementsArray);
+
+        const elementsBidang = getAllBidangs(response[0].attributes.bidangs.data);
+        setBidang(elementsBidang)
+
+        setSelectedData(elementsBidang[0])
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  
+    fetchData();
+  }, [id]);
+
+  const citiesList: [] = bidang;
+
+  const handleSelectChange = async (event: any) => {
     const data = event.target.value;
     setSelectedData(data);
+
+    try {
+      const response = await getDetailBidang(data);
+
+      const elementsArray = getAllItems(response[0].attributes.data_bidangs.data);
+      setData(elementsArray);
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
 
@@ -98,12 +133,12 @@ const DataDasarDetail = () => {
   };
 
   const handleExportData = () => {
-    const csv = generateCsv(csvConfig)(dataCollege);
+    const csv = generateCsv(csvConfig)(data);
 
     download(csvConfig)(csv);
   };
 
-  const handleExportRows = (rows: MRT_Row<CollegeStudent>[]) => {
+  const handleExportRows = (rows: MRT_Row<DataDasarType>[]) => {
     const doc = new jsPDF();
 
     const tableData = rows.map((row) => Object.values(row.original));
@@ -119,7 +154,7 @@ const DataDasarDetail = () => {
 
   const table = useMaterialReactTable({
     columns,
-    data: dataCollege,
+    data: data,
     initialState: {
       pagination: { pageSize: 15, pageIndex: 0 },
       showGlobalFilter: true,
@@ -163,9 +198,7 @@ const DataDasarDetail = () => {
               <button
                 className="bg-[#46BF0E] rounded-lg w-14 h-14 p-2"
                 disabled={table.getPrePaginationRowModel().rows.length === 0}
-                onClick={() =>
-                  handleExportRows(table.getPrePaginationRowModel().rows)
-                }
+                onClick={handleExportData}
               >
                 <Image src="/icons/csv.svg" width={60} height={60} alt="tes" />
               </button>
@@ -173,7 +206,9 @@ const DataDasarDetail = () => {
               <button
                 className="bg-[#C13636] rounded-lg w-14 h-14 p-2"
                 disabled={table.getPrePaginationRowModel().rows.length === 0}
-                onClick={handleExportData}
+                onClick={() =>
+                  handleExportRows(table.getPrePaginationRowModel().rows)
+                }
               >
                 <Image src="/icons/pdf.svg" width={60} height={60} alt="tes" />
               </button>
