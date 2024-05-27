@@ -52,7 +52,7 @@ function Dataset() {
     <div>
       <Navbar />
 
-      <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh]">
+      <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh] px-8">
         <h1 className="text-blue-dark font-bold text-3xl">Dataset</h1>
         <p className="text-blue-dark text-base">Home &gt; Dataset</p>
       </div>
