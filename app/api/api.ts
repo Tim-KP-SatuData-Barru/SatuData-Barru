@@ -17,3 +17,15 @@ export const getDetailBidang = async (bidang: string) => {
 
     return response.data.data;
 };
+
+export const getListPublikasis = async () => {
+    const response = await axios.get(`http://localhost:3001/api/daftar-publikasi?populate=*`);
+
+    return response.data.data;
+};
+
+export const getDetailPublikasi = async (id: string) => {
+    const response = await axios.get(`http://localhost:3001/api/daftar-publikasi/${id}?populate=*`);
+
+    return response.data.data;
+};
