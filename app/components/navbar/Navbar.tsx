@@ -19,12 +19,12 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between  bg-blue-dark px-14 py-4">
+    <nav className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between bg-blue-dark px-14 py-4">
       <Link href="/">
         <Image
-          src="/images/bolata_logo.png"
-          width={105}
-          height={50}
+          src="/images/bolata_logo.webp"
+          width={120}
+          height={75}
           alt="Bolata's icon"
         />
       </Link>
