@@ -37,13 +37,19 @@ function DataDasar() {
             <h1 className="text-orange text-heading-m font-bold">Data Dasar</h1>
           </div>
           <p className="ml-3">
-            Portal transparansi data dan informasi publik bagi masyarakat Kabupaten Banjar. Siapa saja bisa jelajahi data terbuka dari Organisasi Perangkat Daerah di Kabupaten Banjar di sini.
+            Portal transparansi data dan informasi publik bagi masyarakat
+            Kabupaten Barru.
           </p>
         </section>
 
         <section className="flex flex-wrap gap-6 mb-16">
           {itemsForPage.map((data) => (
-            <SkpdCard key={data.id} image={data.image} title={data.title} from="data-dasar" />
+            <SkpdCard
+              key={data.id}
+              image={data.image}
+              title={data.title}
+              from="data-dasar"
+            />
           ))}
         </section>
       </section>

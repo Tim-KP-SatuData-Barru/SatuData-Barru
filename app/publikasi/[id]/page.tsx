@@ -51,14 +51,22 @@ function Publikasi() {
       </div>
 
       <div className="flex flex-row ml-[1.35rem] my-10 gap-10 px-8">
-        <Image
-          src={imageRef.current}
-          alt="Foto Publikasi"
-          width={250}
-          height={250}
-          quality={80}
-          className="object-cover max-h-80 mt-5"
-        />
+        <div className="flex flex-col gap-5">
+          <Image
+            src={imageRef.current}
+            alt="Foto Publikasi"
+            width={250}
+            height={250}
+            quality={80}
+            className="object-cover max-h-80 mt-5"
+          />
+          <button
+            className={`flex font-bold justify-center items-center h-[7vh] w-full text-md text-white px-2 py-1 rounded-md bg-blue cursor-pointer hover:bg-blue-dark`}
+            onClick={handleDownloadPDF}
+          >
+            Unduh PDF
+          </button>
+        </div>
         <div className="w-full flex flex-col gap-[5vh]">
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-bold">{detailPublikasi.judul}</h1>
@@ -86,28 +94,24 @@ function Publikasi() {
                 {detailPublikasi.tanggal_rilis}
               </span>
             </p>
-            <h2 className="text-l font-bold text-orange">Deskripsi:</h2>
-            <h2 className="text-l font-medium">{detailPublikasi.deskripsi}</h2>
-            <div className="flex gap-2 h-[25%]">
+            <h2 className="text-l font-bold text-orange ">Deskripsi:</h2>
+            <h2 className="text-l font-medium text-justify mr-3">
+              {detailPublikasi.deskripsi}
+            </h2>
+          </div>
+          <div className="flex justify-end">
+            <div className="flex gap-2 w-[40%] mr-3">
               <div
-                className={`flex font-bold justify-center items-center h-[5vh] w-[15%] text-xs text-white px-2 py-1 rounded-md bg-blue-light`}
+                className={`flex font-bold justify-center items-center h-[6vh] w-full text-xs text-white px-2 py-1 rounded-md bg-blue-light`}
               >
                 Linimasa
               </div>
               <div
-                className={`flex font-bold justify-center items-center h-[5vh] w-[15%] text-xs text-white px-2 py-1 rounded-md bg-amber-400`}
+                className={`flex font-bold justify-center items-center h-[6vh] w-full text-xs text-white px-2 py-1 rounded-md bg-amber-400`}
               >
                 Metadata
               </div>
             </div>
-          </div>
-          <div className="flex flex-row justify-end mr-[1.4rem]">
-            <button
-              className={`flex font-bold justify-center items-center h-[7vh] w-[30%] text-xs text-white px-2 py-1 rounded-md bg-blue-light cursor-pointer hover:bg-blue-dark`}
-              onClick={handleDownloadPDF}
-            >
-              Unduh PDF
-            </button>
           </div>
         </div>
       </div>
