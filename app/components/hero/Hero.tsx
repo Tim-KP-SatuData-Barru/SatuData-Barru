@@ -10,7 +10,7 @@ function Hero() {
             Selamat Datang di Bolata Yassiberrui !!
           </h2>
           <p className="text-heading-s font-light">
-            Pertal Satu Data Pemerintahan Kota Barru yang terbuka dalam
+            Pertal Satu Data Pemerintahan Kabupaten Barru yang terbuka dalam
             memberikan kemudahan akses untuk publik dan instansi pemerintahan.
           </p>
         </div>

@@ -16,14 +16,14 @@ function Statistik() {
       <section className="flex flex-wrap grow gap-6">
         <div className="flex flex-col border w-[274px] h-[165px] p-5 rounded-3xl shadow-lg shadow-white-hover bg-white">
           <h2 className="flex font-bold text-blue-dark text-heading-l">
-            10.321
+            1500
           </h2>
           <h3 className="text-orange font-bold text-heading-s">Element Data</h3>
           <h3 className="text-l">Kumpulan data yang dapat diakses publik</h3>
         </div>
 
         <div className="flex flex-col border w-[274px] h-[165px] p-5 rounded-3xl shadow-lg shadow-white-hover bg-white">
-          <h2 className="flex font-bold text-blue-dark text-heading-l">126</h2>
+          <h2 className="flex font-bold text-blue-dark text-heading-l">36</h2>
           <h3 className="text-orange font-bold text-heading-s">OPD/Instansi</h3>
           <h3 className="text-l">Data-Data Organisasi Perangkat Daerah</h3>
         </div>
