@@ -26,7 +26,7 @@ function Dataset() {
   }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 10;
   const totalPages = Math.ceil(dataset.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -52,7 +52,7 @@ function Dataset() {
     <div>
       <Navbar />
 
-      <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh] px-8">
+      <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh] px-8 ">
         <h1 className="text-blue-dark font-bold text-3xl">Dataset</h1>
         <p className="text-blue-dark text-base">Home &gt; Dataset</p>
       </div>

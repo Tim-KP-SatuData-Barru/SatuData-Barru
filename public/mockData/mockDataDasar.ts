@@ -20,7 +20,7 @@ export const dataUmumItems = [
     },
     {
       id: 3,
-      title: "Beppelitbangda",
+      title: "bkpsdm",
       image: "/images/data-umum/beppelitbangda.svg",
     },
     {
@@ -35,7 +35,7 @@ export const dataUmumItems = [
     },
     {
       id: 6,
-      title: "Capil",
+      title: "Dukcapil",
       image: "/images/data-umum/capil.svg",
     },
     {
