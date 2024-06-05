@@ -1,18 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SearchBar () {
-    return (
-        <div className="flex flex-row justify-center gap-10 mt-[5vh]">
-            <input className="rounded-lg pl-4 h-[5vh] w-[70%] border-2 border-blue-dark " type="text" placeholder="Search" />
-            <div className="flex flex-row gap-5 items-center"> {/* Add 'items-center' class */}
-                <p className="">Urutkan: </p>
-                <select>
-                    <option value="terbaru">Terbaru</option>
-                    <option value="terlama">Terlama</option>
-                </select>
-            </div>
-        </div>
-    )
+function SearchBar({ onSearch, onSortChange }) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOrder, setSortOrder] = useState("terbaru");
+
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setSearchQuery(value);
+    onSearch(value);
+  };
+
+  const handleSortChange = (event) => {
+    const value = event.target.value;
+    setSortOrder(value);
+    onSortChange(value);
+  };
+
+  return (
+    <div className="flex flex-row justify-center gap-10 mt-[5vh]">
+      <input
+        className="rounded-lg pl-4 h-[5vh] w-[70%] border-2 border-blue-dark"
+        type="text"
+        placeholder="Search"
+        value={searchQuery}
+        onChange={handleInputChange}
+      />
+      <div className="flex flex-row gap-5 items-center">
+        <p className="">Urutkan: </p>
+        <select value={sortOrder} onChange={handleSortChange}>
+          <option value="terbaru">Terbaru</option>
+          <option value="terlama">Terlama</option>
+        </select>
+      </div>
+    </div>
+  );
 }
 
 export default SearchBar;
