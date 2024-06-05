@@ -1,25 +1,27 @@
 "use client";
 import Footer from "@/app/components/footer";
 import Navbar from "@/app/components/navbar";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PageButton from "../components/pageButton";
 import PublicationCard from "../components/PublicationCard";
 import SearchBar from "../components/searchBar";
-import { useState } from "react";
-import mockDataPublikasi from "@/public/mockData/mockDataPublikasi";
 import { getListPublikasis } from "../api/api";
 import Link from "next/link";
 
 function PublikasiList() {
   const daftarLink = "/jadwal-publikasi";
   const [currentPage, setCurrentPage] = useState(1);
-  const [publikasi, setPublikasi] = useState<[]>([]);
+  const [publikasi, setPublikasi] = useState([]);
+  const [filteredPublikasi, setFilteredPublikasi] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOrder, setSortOrder] = useState("terbaru");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getListPublikasis();
         setPublikasi(data);
+        setFilteredPublikasi(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -28,22 +30,49 @@ function PublikasiList() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const filtered = publikasi.filter((item) =>
+      item.attributes.judul.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const sorted = [...filtered].sort((a, b) => {
+      const dateA = new Date(a.attributes.tanggal_rilis);
+      const dateB = new Date(b.attributes.tanggal_rilis);
+      return sortOrder === "terbaru" ? dateB - dateA : dateA - dateB;
+    });
+
+    setFilteredPublikasi(sorted);
+  }, [searchQuery, sortOrder, publikasi]);
+
   const itemsPerPage = 10;
-  const totalPages = Math.ceil(publikasi.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredPublikasi.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + itemsPerPage, publikasi.length);
+  const endIndex = Math.min(
+    startIndex + itemsPerPage,
+    filteredPublikasi.length
+  );
 
-  const itemsForPage = publikasi.slice(startIndex, endIndex);
+  const itemsForPage = filteredPublikasi.slice(startIndex, endIndex);
 
-  const handlePageChange = (pageNumber: number) => {
+  const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setCurrentPage(1); // Reset to first page on new search
+  };
+
+  const handleSortOrderChange = (order) => {
+    setSortOrder(order);
+    setCurrentPage(1); // Reset to first page on sort change
   };
 
   return (
     <div>
       <Navbar />
-      <div className="flex justify-between items-center  px-8">
+      <div className="flex justify-between items-center px-8">
         <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh]">
           <h1 className="text-blue-dark font-bold text-3xl">Publikasi</h1>
           <p className="text-blue-dark text-base">Home &gt; Publikasi</p>
@@ -57,12 +86,10 @@ function PublikasiList() {
         </Link>
       </div>
 
-      <SearchBar />
+      <SearchBar onSearch={handleSearch} onSortChange={handleSortOrderChange} />
 
       <section className="flex flex-wrap gap-6 mb-5 p-[5vh] justify-center">
         {itemsForPage.map((data, id) => (
-          // <PublicationCard data={data.attributes}  key={data.id} />
-          // <PublicationCard data={data.attributes} />
           <PublicationCard key={id} data={data} />
         ))}
       </section>

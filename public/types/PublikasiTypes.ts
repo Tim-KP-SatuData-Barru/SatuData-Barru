@@ -39,6 +39,15 @@ export interface PublicationAttributes {
   image: FileData;
 }
 
+export interface ScheduleAttributes {
+  attributes: any;
+  judul: string;
+  periode_terbit: string;
+  bahasa: string;
+  jadwal_rilis: string;
+  status: string;
+}
+
 export interface DataProps {
   id: number;
   attributes: PublicationAttributes;
