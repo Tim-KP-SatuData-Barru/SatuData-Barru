@@ -1,0 +1,51 @@
+export const infografisItems = [
+    {
+        id: 1,
+        title: "Kabupaten Barru",
+        imgsrc: "/images/data_barru.jpg",
+        views: "137",
+        date: "2023-11-08",
+    },
+    {
+        id: 2,
+        title: "Kabupaten Barru",
+        imgsrc: "/images/data_barru.jpg",
+        views: "137",
+        date: "2023-11-08",
+    },
+    {
+        id: 3,
+        title: "Kabupaten Barru",
+        imgsrc: "/images/data_barru.jpg",
+        views: "137",
+        date: "2023-11-08",
+    },
+    {
+        id: 4,
+        title: "Kabupaten Barru",
+        imgsrc: "/images/data_barru.jpg",
+        views: "137",
+        date: "2023-11-08",
+    },
+    {
+        id: 5,
+        title: "Kabupaten Barru",
+        imgsrc: "/images/data_barru.jpg",
+        views: "137",
+        date: "2023-11-08",
+    },
+    {
+        id: 6,
+        title: "Kabupaten Barru",
+        imgsrc: "/images/data_barru.jpg",
+        views: "137",
+        date: "2023-11-08",
+    },
+    {
+        id: 7,
+        title: "Kabupaten Barru",
+        imgsrc: "/images/data_barru.jpg",
+        views: "137",
+        date: "2023-11-08",
+    },
+]
