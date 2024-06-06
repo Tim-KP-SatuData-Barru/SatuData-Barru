@@ -9,7 +9,7 @@ interface DatasetCardProps {
 
 function DatasetCard(data: DatasetCardProps) {
   return (
-    <div className="flex flex-row border bg-white p-5 mx-16 hover:bg-neutral-300 cursor-pointer" onClick={() => data.onClick(data.card)}>
+    <div className="flex flex-row border bg-white p-5 mx-14 hover:bg-neutral-300 cursor-pointer" onClick={() => data.onClick(data.card)}>
       <Image 
         alt="logo" 
         src="/icons/folder.svg"

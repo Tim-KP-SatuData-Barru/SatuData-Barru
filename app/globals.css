@@ -28,3 +28,8 @@ body::-webkit-scrollbar {
 @page {
   margin-left: 12.5mm;
 }
+
+.hamburger-line {
+  @apply my-2 block h-[2px] w-[30px] bg-white z-50;
+}
+

@@ -17,7 +17,7 @@ function SearchBar({ onSearch, onSortChange }) {
   };
 
   return (
-    <div className="flex flex-row justify-center gap-10 mt-[5vh]">
+    <div className="flex flex-row justify-center gap-10 mt-[5vh] px-14">
       <input
         className="rounded-lg pl-4 h-[5vh] w-[70%] border-2 border-blue-dark"
         type="text"
