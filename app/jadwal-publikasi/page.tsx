@@ -70,7 +70,7 @@ export default function JadwalPublikasi() {
         {"Jadwal Publikasi"}
       </h1>
       <SearchBar onSearch={handleSearch} onSortChange={handleSortOrderChange} />
-      <section className="flex flex-wrap gap-6 mb-5 p-[5vh] justify-center">
+      <section className="flex flex-wrap gap-6 mb-5 px-14 py-8 justify-center">
         <table className="min-w-[90vw] bg-white border border-gray-200 rounded-md table-fixed">
           <thead className="bg-cyan-950 text-white">
             <tr>
