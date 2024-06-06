@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="bottom-0">
       <div className="flex text-white bg-blue-dark justify-between footer-padding py-9 gap-10">
-        <div className="flex flex-row gap-10">
+        <div className="flex flex-col md:flex-row gap-10">
           <div>
             <Image
               src="/images/barru_logo.png"
@@ -35,7 +35,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="bg-blue text-white text-center py-3">
+      <div className="bg-blue text-white text-center py-3 px-14">
         <p>
           Copyright © 2024 Dinas Komunikasi, Informatika, Statistik dan Persandian
         </p>

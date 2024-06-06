@@ -4,9 +4,9 @@ import React from "react";
 function Hero() {
   return (
     <section>
-      <div className="bg-[url('/images/background.webp')] bg-cover bg-center h-[90vh] px-14 flex items-center flex-row justify-space text-white gap-20">
-        <div className="w-3/5">
-          <h2 className="text-5xl text-orange-dark font-extrabold mb-2">
+      <div className="bg-[url('/images/background.webp')] bg-cover bg-center h-[90vh] px-14 flex items-center lg:flex-row flex-col justify-space text-white gap-10 lg:gap-20">
+        <div className="w-3/5 mt-8 lg:mt-0 text-center lg:text-left">
+          <h2 className="text-heading-m md:text-5xl text-orange-dark font-extrabold mb-2">
             Selamat Datang di Bolata Yassiberrui !!
           </h2>
           <p className="text-heading-s font-light">

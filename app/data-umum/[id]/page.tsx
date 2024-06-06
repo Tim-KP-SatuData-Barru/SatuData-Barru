@@ -6,134 +6,7 @@ import React from "react";
 import { useState } from "react";
 import PageButton from "@/app/components/pageButton";
 import { useParams } from "next/navigation";
-
-const mockDataUmum = [
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-  {
-    id: "1",
-    date: "05 Maret 2024",
-    year: 2024,
-    title: "PERUBAHAN RENJA KANTOR KEC. BARRU TAHUN 2023",
-    tag: "Kecamatan Barru",
-  },
-];
-
-const dataUmumDetailItems = [
-  {
-    id: 1,
-    title: "RENJA",
-  },
-  {
-    id: 2,
-    title: "LAKIP",
-  },
-  {
-    id: 3,
-    title: "RENSTRA",
-  },
-  {
-    id: 4,
-    title: "IKUP",
-  },
-  {
-    id: 5,
-    title: "SAKIP",
-  },
-  {
-    id: 6,
-    title: "PERATURAN DAERAH",
-  },
-  {
-    id: 7,
-    title: "RPJMD",
-  },
-  {
-    id: 8,
-    title: "RENCANA AKSI",
-  },
-  {
-    id: 9,
-    title: "PERJANJIAN KINERJA",
-  },
-  {
-    id: 10,
-    title: "RKPD",
-  },
-  {
-    id: 11,
-    title: "PERATURAN BUPATI",
-  },
-  {
-    id: 12,
-    title: "KLHS",
-  },
-  {
-    id: 13,
-    title: "LPPD",
-  },
-];
+import { dataUmumDetailItems, mockDataUmum } from "@/public/mockData/mockDataUmum";
 
 function DataUmumDetail() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -170,7 +43,7 @@ function DataUmumDetail() {
       <h1 className="py-12 w-full text-center text-orange text-heading-m font-bold">
         {formatTitle(id)}
       </h1>
-      <section className="grid grid-col-3 grid-flow-col gap-4 pb-8">
+      <section className="grid grid-flow-row md:grid-col-3 md:grid-flow-col gap-4 pb-8">
         <div className="flex flex-col gap-3 px-14 col-span-2">
           {itemsForPage.map((item, key) => (
             <section
@@ -180,7 +53,7 @@ function DataUmumDetail() {
               <h1 className="text-heading-s text-[#BF731A] font-bold">
                 {item.title}
               </h1>
-              <div key={key} className="flex flex-row gap-2">
+              <div key={key} className="flex flex-col md:flex-row gap-2">
                 <div className="bg-orange-light px-2 py-1 text-xs text-white font-bold rounded-xl text-center flex flex-row gap-1 items-center">
                   <Image
                     src={"/icons/timeline.svg"}
@@ -224,7 +97,7 @@ function DataUmumDetail() {
             </section>
           ))}
         </div>
-        <div className="flex flex-col gap-3 pr-14">
+        <div className="flex flex-col gap-3 pl-14 md:pl-0 pr-14">
           <h1 className="text-orange text-heading-s font-bold">{dataUmum}</h1>
           {dataUmumDetailItems.map((item, key) => (
             <section
