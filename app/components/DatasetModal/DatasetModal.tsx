@@ -84,7 +84,7 @@ const DatasetModal = (data: DatasetModalProps) => {
             </div>
             <div className="flex flex-row gap-2">
               <button
-                className="flex flex-row bg-red-600 rounded-md pr-2 py-1 gap-2 justify-center hover:bg-red-800"
+                className="flex flex-row bg-red-600 max-w-52 rounded-md pr-2 py-1 gap-2 justify-center hover:bg-red-800"
                 onClick={handleDownloadPDF}
               >
                 <Image
@@ -96,7 +96,7 @@ const DatasetModal = (data: DatasetModalProps) => {
                 <h1 className="text-white font-black text-sm">PDF</h1>
               </button>
               <button
-                className="flex flex-row bg-lime-700 rounded-md pr-2 py-1 gap-2 justify-center hover:bg-lime-900"
+                className="flex flex-row bg-lime-700 max-w-52 rounded-md pr-2 py-1 gap-2 justify-center hover:bg-lime-900"
                 onClick={handleDownloadCSV}
               >
                 <Image

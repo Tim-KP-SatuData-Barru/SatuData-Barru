@@ -11,7 +11,7 @@ function PublicationCard({ data }: any) {
   return (
     <Link
       href={`/publikasi/${data.id}`}
-      className="flex flex-col border w-[18%] h-[60vh] rounded-3xl shadow-lg shadow-white-hover bg-white"
+      className="flex flex-col border max-w-52 h-[60vh] rounded-3xl shadow-lg shadow-white-hover bg-white"
     >
       <div className="relative w-full h-[70%] rounded-t-3xl overflow-hidden">
         {imageUrl && (
