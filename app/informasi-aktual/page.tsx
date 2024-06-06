@@ -26,11 +26,11 @@ function InformasiAktualList() {
     <div>
       <Navbar />
 
-      <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh]">
-        <h1 className="text-blue-dark font-bold text-3xl">
+      <div className="flex flex-col px-14 pt-8">
+        <h1 className="text-heading-m font-bold">
           Informasi Aktual
         </h1>
-        <p className="text-blue-dark text-base">
+        <p>
           Home &gt; Informasi Aktual
         </p>
       </div>

@@ -52,12 +52,12 @@ function Dataset() {
     <div>
       <Navbar />
 
-      <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh] px-8 ">
-        <h1 className="text-blue-dark font-bold text-3xl">Dataset</h1>
-        <p className="text-blue-dark text-base">Home &gt; Dataset</p>
+      <div className="flex flex-col pt-8 px-14">
+        <h1 className="text-heading-m font-bold">Dataset</h1>
+        <p>Home &gt; Dataset</p>
       </div>
 
-      <section className="flex flex-col gap-6 mb-5 p-[5vh] justify-center">
+      <section className="flex flex-col gap-6 mb-5 py-8 justify-center">
         {itemsForPage.map((dataset, key) => (
           <DatasetCard
             key={key}

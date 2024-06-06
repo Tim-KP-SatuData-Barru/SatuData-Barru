@@ -72,13 +72,13 @@ function PublikasiList() {
   return (
     <div>
       <Navbar />
-      <div className="flex justify-between items-center px-8">
-        <div className="flex flex-col gap-2 ml-[2vw] mt-[3vh]">
-          <h1 className="text-blue-dark font-bold text-3xl">Publikasi</h1>
-          <p className="text-blue-dark text-base">Home &gt; Publikasi</p>
+      <div className="flex justify-between items-center px-14">
+        <div className="flex flex-col pt-8">
+          <h1 className="text-heading-m font-bold">Publikasi</h1>
+          <p>Home &gt; Publikasi</p>
         </div>
         <Link href={daftarLink}>
-          <div className="flex justify-center mt-[3vh] px-[2vw]">
+          <div className="flex justify-center mt-[3vh]">
             <button className="bg-blue text-white w-60 h-12 rounded-3xl">
               Lihat Jadwal Publikasi &gt;
             </button>
@@ -88,7 +88,7 @@ function PublikasiList() {
 
       <SearchBar onSearch={handleSearch} onSortChange={handleSortOrderChange} />
 
-      <section className="flex flex-wrap gap-6 mb-5 p-[5vh] justify-center">
+      <section className="flex flex-wrap gap-6 mb-5 px-14 py-8 justify-center">
         {itemsForPage.map((data, id) => (
           <PublicationCard key={id} data={data} />
         ))}
