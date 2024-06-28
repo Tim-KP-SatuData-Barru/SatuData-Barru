@@ -5,7 +5,7 @@ import textOverflow from "@/lib/textOverflow";
 
 function PublicationCard({ data }: any) {
   const imageUrl = data?.attributes?.image?.data?.attributes?.url
-    ? `http://localhost:3001${data.attributes.image.data.attributes.url}`
+    ? `https://satudata.barrukab.go.id/dashboard${data.attributes.image.data.attributes.url}`
     : "";
 
   return (
