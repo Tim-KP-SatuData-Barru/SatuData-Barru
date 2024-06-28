@@ -13,7 +13,7 @@ export default function JadwalPublikasi() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("terbaru");
-  const itemsPerPage = 6;
+  const itemsPerPage = 20;
 
   useEffect(() => {
     async function fetchData() {

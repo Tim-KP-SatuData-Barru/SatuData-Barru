@@ -10,6 +10,7 @@ function Publikasi() {
   const { id } = useParams<{ id: string }>();
   const [detailPublikasi, setDetailPublikasi] = useState<any>([]);
   const imageRef = useRef("");
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +19,7 @@ function Publikasi() {
         setDetailPublikasi(data.attributes);
 
         if (data.attributes.image?.data?.attributes?.url) {
-          imageRef.current = `https://satudata.barrukab.go.id/dashboard${data.attributes.image.data.attributes.url}`;
+          imageRef.current = `${BASE_URL}${data.attributes.image.data.attributes.url}`;
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -26,14 +27,14 @@ function Publikasi() {
     };
 
     fetchData();
-  }, [id]);
+  }, [BASE_URL, id]);
 
   const handleDownloadPDF = () => {
     if (!detailPublikasi) return null;
 
     const pdf = detailPublikasi.pdf.data.attributes.url;
     const link = document.createElement("a");
-    link.href = "https://satudata.barrukab.go.id/dashboard" + pdf;
+    link.href = `${BASE_URL}` + pdf;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
