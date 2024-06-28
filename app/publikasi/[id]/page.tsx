@@ -18,7 +18,7 @@ function Publikasi() {
         setDetailPublikasi(data.attributes);
 
         if (data.attributes.image?.data?.attributes?.url) {
-          imageRef.current = `http://localhost:3001${data.attributes.image.data.attributes.url}`;
+          imageRef.current = `https://satudata.barrukab.go.id/dashboard${data.attributes.image.data.attributes.url}`;
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -33,7 +33,7 @@ function Publikasi() {
 
     const pdf = detailPublikasi.pdf.data.attributes.url;
     const link = document.createElement("a");
-    link.href = "http://localhost:3001" + pdf;
+    link.href = "https://satudata.barrukab.go.id/dashboard" + pdf;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

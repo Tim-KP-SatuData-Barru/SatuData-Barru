@@ -17,7 +17,7 @@ const DatasetModal = (data: DatasetModalProps) => {
     const csv = data.card.csv.data.attributes.url;
 
     const link = document.createElement("a");
-    link.href = "http://localhost:3001" + csv;
+    link.href = "https://satudata.barrukab.go.id/dashboard" + csv;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -29,7 +29,7 @@ const DatasetModal = (data: DatasetModalProps) => {
     const pdf = data.card.pdf.data.attributes.url;
 
     const link = document.createElement("a");
-    link.href = "http://localhost:3001" + pdf;
+    link.href = "https://satudata.barrukab.go.id/dashboard" + pdf;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
