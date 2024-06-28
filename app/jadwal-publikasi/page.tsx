@@ -34,8 +34,8 @@ export default function JadwalPublikasi() {
     );
 
     const sorted = [...filtered].sort((a, b) => {
-      const dateA = new Date(a.attributes.jadwal_rilis);
-      const dateB = new Date(b.attributes.jadwal_rilis);
+      const dateA = new Date(a.attributes.jadwal_rilis).getTime();
+      const dateB = new Date(b.attributes.jadwal_rilis).getTime();
       return sortOrder === "terbaru" ? dateB - dateA : dateA - dateB;
     });
 
@@ -44,21 +44,21 @@ export default function JadwalPublikasi() {
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
+  const startIndex = (parseInt(currentPage.toString()) - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, filteredData.length);
 
   const itemsForPage = filteredData.slice(startIndex, endIndex);
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
 
-  const handleSearch = (query) => {
+  const handleSearch = (query: string) => {
     setSearchQuery(query);
     setCurrentPage(1); // Reset to first page on new search
   };
 
-  const handleSortOrderChange = (order) => {
+  const handleSortOrderChange = (order: string) => {
     setSortOrder(order);
     setCurrentPage(1); // Reset to first page on sort change
   };

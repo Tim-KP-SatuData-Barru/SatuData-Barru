@@ -1,1 +1,1 @@
-export { default } from './skpdCard';
+export { default } from "./SkpdCard";

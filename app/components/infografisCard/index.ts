@@ -1,1 +1,1 @@
-export {default} from './infografisCard';
+export { default } from "./InfografisCard";

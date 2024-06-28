@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 
-function SearchBar({ onSearch, onSortChange }) {
+interface SearchBarProps {
+  onSearch: (value: string) => void;
+  onSortChange: (value: string) => void;
+}
+
+function SearchBar({ onSearch, onSortChange }: SearchBarProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("terbaru");
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchQuery(value);
     onSearch(value);
   };
 
-  const handleSortChange = (event) => {
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     setSortOrder(value);
     onSortChange(value);

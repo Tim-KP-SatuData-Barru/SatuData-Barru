@@ -14,7 +14,10 @@ function InformasiAktualList() {
   const totalPages = Math.ceil(mockDataInfoAktual.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + itemsPerPage, mockDataInfoAktual.length);
+  const endIndex = Math.min(
+    startIndex + itemsPerPage,
+    mockDataInfoAktual.length
+  );
 
   const itemsForPage = mockDataInfoAktual.slice(startIndex, endIndex);
 
@@ -27,23 +30,28 @@ function InformasiAktualList() {
       <Navbar />
 
       <div className="flex flex-col px-14 pt-8">
-        <h1 className="text-heading-m font-bold">
-          Informasi Aktual
-        </h1>
-        <p>
-          Home &gt; Informasi Aktual
-        </p>
+        <h1 className="text-heading-m font-bold">Informasi Aktual</h1>
+        <p>Home &gt; Informasi Aktual</p>
       </div>
-
-      <SearchBar />
 
       <section className="flex flex-wrap gap-6 mb-5 p-[5vh] justify-center">
         {itemsForPage.map((data) => (
-          <InfoAktualMini key={data.id} id={data.id} title={data.title} image={data.image} date={data.date} views={data.views} />
+          <InfoAktualMini
+            key={data.id}
+            id={data.id}
+            title={data.title}
+            image={data.image}
+            date={data.date}
+            views={data.views}
+          />
         ))}
       </section>
 
-      <PageButton currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
+      <PageButton
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
 
       <Footer />
     </div>

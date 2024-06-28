@@ -1,4 +1,5 @@
 export interface DatasetProps {
+  attributes: DatasetProps;
   id: string;
   judul_kegiatan: string;
   tahun_kegiatan: string;
