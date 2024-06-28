@@ -2,6 +2,7 @@ import React from "react";
 import { DatasetProps } from "@/public/types/DatasetTypes";
 import Image from "next/image";
 import DatasetModalInfo from "./DatasetModalInfo";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 interface DatasetModalProps {
   card: DatasetProps | null;
@@ -17,7 +18,7 @@ const DatasetModal = (data: DatasetModalProps) => {
     const csv = data.card.csv.data.attributes.url;
 
     const link = document.createElement("a");
-    link.href = "https://satudata.barrukab.go.id/dashboard" + csv;
+    link.href = { BASE_URL } + csv;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -29,7 +30,7 @@ const DatasetModal = (data: DatasetModalProps) => {
     const pdf = data.card.pdf.data.attributes.url;
 
     const link = document.createElement("a");
-    link.href = "https://satudata.barrukab.go.id/dashboard" + pdf;
+    link.href = { BASE_URL } + pdf;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

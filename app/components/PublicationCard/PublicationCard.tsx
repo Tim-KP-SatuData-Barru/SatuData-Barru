@@ -4,8 +4,9 @@ import Link from "next/link";
 import textOverflow from "@/lib/textOverflow";
 
 function PublicationCard({ data }: any) {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const imageUrl = data?.attributes?.image?.data?.attributes?.url
-    ? `https://satudata.barrukab.go.id/dashboard${data.attributes.image.data.attributes.url}`
+    ? `${BASE_URL}${data.attributes.image.data.attributes.url}`
     : "";
 
   return (
