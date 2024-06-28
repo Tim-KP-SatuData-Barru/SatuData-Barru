@@ -11,8 +11,10 @@ import Link from "next/link";
 function PublikasiList() {
   const daftarLink = "/jadwal-publikasi";
   const [currentPage, setCurrentPage] = useState(1);
-  const [publikasi, setPublikasi] = useState([]);
-  const [filteredPublikasi, setFilteredPublikasi] = useState([]);
+  const [publikasi, setPublikasi] = useState<{ attributes: any }[]>([]);
+  const [filteredPublikasi, setFilteredPublikasi] = useState<
+    { attributes: any }[]
+  >([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("terbaru");
 
@@ -36,8 +38,8 @@ function PublikasiList() {
     );
 
     const sorted = [...filtered].sort((a, b) => {
-      const dateA = new Date(a.attributes.tanggal_rilis);
-      const dateB = new Date(b.attributes.tanggal_rilis);
+      const dateA = new Date(a.attributes.jadwal_rilis).getTime();
+      const dateB = new Date(b.attributes.jadwal_rilis).getTime();
       return sortOrder === "terbaru" ? dateB - dateA : dateA - dateB;
     });
 
@@ -55,16 +57,16 @@ function PublikasiList() {
 
   const itemsForPage = filteredPublikasi.slice(startIndex, endIndex);
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
 
-  const handleSearch = (query) => {
+  const handleSearch = (query: string) => {
     setSearchQuery(query);
     setCurrentPage(1); // Reset to first page on new search
   };
 
-  const handleSortOrderChange = (order) => {
+  const handleSortOrderChange = (order: string) => {
     setSortOrder(order);
     setCurrentPage(1); // Reset to first page on sort change
   };

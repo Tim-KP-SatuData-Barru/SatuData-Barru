@@ -10,7 +10,7 @@ import { DatasetProps } from "@/public/types/DatasetTypes";
 import { getListDatasets } from "../api/api";
 
 function Dataset() {
-  const [dataset, setDataset] = useState<[]>([]);
+  const [dataset, setDataset] = useState<DatasetProps[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
